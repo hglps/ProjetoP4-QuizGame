@@ -12,8 +12,9 @@ class LevelOneScreen(Screen):
 
     def showScreen(self):
         positions = renderQuestionRects(super().getScreen())
-        selectedQuestions, selectedOptions, selectedAnswer = self.selectQuestions()
-
+        # selectedQuestions, selectedOptions, selectedAnswer = self.selectQuestions()
+        selectedQuestions = self.selectQuestions()
+        print(selectedQuestions)
 
 
     def selectQuestions(self):
@@ -25,14 +26,14 @@ class LevelOneScreen(Screen):
 
         for i in range(0, 5):
             selectedQuestions = [self.screenManager.getQuestions()[item] for item in arrayQuestions]
-            selectedOptions = [self.screenManager.getOptions()[item] for item in arrayQuestions]
-            selectedAnswer = [self.screenManager.getAnswer()[item] for item in arrayQuestions]
+            # selectedOptions = [self.screenManager.getOptions()[item] for item in arrayQuestions]
+            # selectedAnswer = [self.screenManager.getAnswer()[item] for item in arrayQuestions]
 
-        return selectedQuestions, selectedOptions, selectedAnswer
+        return selectedQuestions #, selectedOptions, selectedAnswer
 
     def showQuestion(self):
         mouse = pygame.mouse.get_pos()
-        if mouse[0]  # pegar intervalo e mostrar pergunta
+        # if mouse[0]  # pegar intervalo e mostrar pergunta
 
     def text_objects(text, font, textColor):
 
