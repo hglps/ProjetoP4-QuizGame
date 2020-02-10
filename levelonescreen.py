@@ -14,7 +14,9 @@ class LevelOneScreen(Screen):
         positions = renderQuestionRects(super().getScreen())
         # selectedQuestions, selectedOptions, selectedAnswer = self.selectQuestions()
         selectedQuestions = self.selectQuestions()
-        print(selectedQuestions)
+        for item in selectedQuestions:
+            print(item)
+        print("\n\n")
 
     def selectQuestions(self):
         arrayQuestions = []
