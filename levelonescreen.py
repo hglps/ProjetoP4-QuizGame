@@ -16,7 +16,6 @@ class LevelOneScreen(Screen):
         selectedQuestions = self.selectQuestions()
         print(selectedQuestions)
 
-
     def selectQuestions(self):
         arrayQuestions = []
         for i in range(0, 5):
@@ -29,7 +28,7 @@ class LevelOneScreen(Screen):
             # selectedOptions = [self.screenManager.getOptions()[item] for item in arrayQuestions]
             # selectedAnswer = [self.screenManager.getAnswer()[item] for item in arrayQuestions]
 
-        return selectedQuestions #, selectedOptions, selectedAnswer
+        return selectedQuestions # , selectedOptions, selectedAnswer
 
     def showQuestion(self):
         mouse = pygame.mouse.get_pos()
