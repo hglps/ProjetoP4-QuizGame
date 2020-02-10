@@ -1,48 +1,39 @@
 import pygame
-from screen import *
 from pygame.locals import *
+
+# from screen import *
+from startscreen import *
+from levelonescreen import *
 from util import *
 
-#TODO CHECK Plugins de color palette
+'''
+state = 0 : Start Screen
+state = 1 : Level 1 Screen
+state = 2 : Level 2 Screen
+state = 3 : Finished Game Screen
+'''
 
 pygame.init()
 
-currentScreen= Screen("Quiz Game", "icon.png", 900, 600)
 
-color = (78, 150, 124)
+global state
+state = 0
 
-background = pygame.image.load('fundogreen2.png')
-
-
-
-def testePrint():
-
-    global currentScreen
-    currentScreen.getScreen().fill((0,200,0))
-
-
+# color = (78, 150, 124)
 
 
 while True:
-    #currentScreen.getScreen().fill(color)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
+            exit()
 
-    #generateText("Quiz Game", 80, (0, 0, 0), 450, 100, currentScreen)
-
-
-    currentScreen.getScreen().blit(background, (0, 0))
-
-    generateButton("Start",    570, 120, 130, 60, (12, 191, 117), (17, 150, 124), BLACK, 20, currentScreen,
-                   testePrint)
-    generateButton("Button 2", 570, 200, 130, 60, (12, 191, 117), (17, 150, 124), BLACK, 20, currentScreen,
-                   testePrint)
-    generateButton("Button 3", 570, 280, 130, 60, (12, 191, 117), (17, 150, 124), BLACK, 20, currentScreen,
-                   testePrint)
-    generateButton("Quit",     570, 360, 130, 60, (12, 191, 117), (17, 150, 124), BLACK, 20, currentScreen,
-                   pygame.quit)
+    if state == 0:
+        currentScreen = StartScreen("Quizzer", "icon.png", 900, 600, "fundogreen2.png")
+    elif state == 1:
+        currentScreen = LevelOneScreen("Quizzer", "icon.png", 900, 600, "questionbg.png")
+        currentScreen.showScreen()
 
     pygame.display.update()
 

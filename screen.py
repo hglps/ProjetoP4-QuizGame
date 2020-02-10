@@ -1,36 +1,43 @@
 import pygame
+from util import *
+from startscreen import *
 
 
 class Screen:
 
-    def __init__(self, caption, icon, width, height):
-        self.__caption = caption #string
-        self.__icon = icon #string
-        self.__width = width #numeric
-        self.__height = height #idem
-        self.__screen = None #display object
-        self.__setIcon()
-        self.__setCaption()
-        self.setScreen(self.__width, self.__height)
+    def __init__(self, caption, icon, width, height, backgroundImg):
+        self.caption = caption  # string
+        self.icon = icon  # string
+        self.width = width  # numeric
+        self.height = height  # idem
+        self.screen = None  # display object
+        self.backgroundImg = loadImage(backgroundImg)
+        self.setIcon()
+        self.setCaption()
+        self.setScreen(self.width, self.height)
+        self.showBackgroundImg()
 
-    def __setIcon(self):
-        icon = pygame.image.load(self.__icon)
+    def setIcon(self):
+        icon = pygame.image.load(self.icon)
         pygame.display.set_icon(icon)
 
-    def __setCaption(self):
-        pygame.display.set_caption(self.__caption)
+    def setCaption(self):
+        pygame.display.set_caption(self.caption)
 
     def getDimensions(self):
-        dimensions = (self.__width, self.__height)
+        dimensions = (self.width, self.height)
         return dimensions
 
     def setDimensions(self, width, height):
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     def setScreen(self, width, height):
         self.setDimensions(width, height)
-        self.__screen = pygame.display.set_mode((self.__width, self.__height))
+        self.screen = pygame.display.set_mode((self.width, self.height))
+
+    def showBackgroundImg(self):
+        self.screen.blit(self.backgroundImg, (0,0))
 
     def getScreen(self):
-        return self.__screen
+        return self.screen
