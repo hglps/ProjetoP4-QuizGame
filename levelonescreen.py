@@ -1,7 +1,6 @@
 import pygame
 import util
 from screen import *
-from questionmanager import *
 import random
 from question import *
 
