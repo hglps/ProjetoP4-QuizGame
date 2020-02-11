@@ -2,7 +2,13 @@ Quiz Game
 
 Projeto de Software - Profº Arturo
 
-Dúvidas:
+Para executar:  python main.py
+
+(necessário ter framework **pygame** instalado)
+
+
+
+**Dúvidas:**
 
 **Hiago - @hglps - hlc2@ic.ufal.br**
 
