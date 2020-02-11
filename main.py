@@ -4,6 +4,7 @@ from pygame.locals import *
 # from screen import *
 from startscreen import *
 from levelonescreen import *
+from screenmanager import *
 from util import *
 
 '''
@@ -16,11 +17,11 @@ state = 3 : Finished Game Screen
 pygame.init()
 
 
-global state
-state = 0
+# global state
+# state = 0
 
 # color = (78, 150, 124)
-
+screen = ScreenManager()
 
 while True:
 
@@ -29,11 +30,15 @@ while True:
             pygame.quit()
             exit()
 
-    if state == 0:
-        currentScreen = StartScreen("Quizzer", "icon.png", 900, 600, "fundogreen2.png")
-    elif state == 1:
-        currentScreen = LevelOneScreen("Quizzer", "icon.png", 900, 600, "questionbg.png")
-        currentScreen.showScreen()
+    screen.showScreen()
 
-    pygame.display.update()
+
+
+    # if currentScreen.state == 0:
+    #     currentScreen = StartScreen("Quizzer", "icon.png", 900, 600, 0, "fundogreen2.png")
+    # elif currentScreen.state == 1:
+    #     currentScreen = LevelOneScreen("Quizzer", "icon.png", 900, 600, 1,"questionbg.png")
+    #     currentScreen.showScreen()
+
+    # pygame.display.update()
 

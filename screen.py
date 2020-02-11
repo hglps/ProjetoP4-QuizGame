@@ -1,21 +1,33 @@
 import pygame
-from util import *
+import util
 from startscreen import *
 
 
 class Screen:
 
-    def __init__(self, caption, icon, width, height, backgroundImg):
+    def __init__(self, caption, icon, width, height, state, lives, score):
         self.caption = caption  # string
         self.icon = icon  # string
         self.width = width  # numeric
         self.height = height  # idem
+        self.state = state
         self.screen = None  # display object
-        self.backgroundImg = loadImage(backgroundImg)
+        self.lives = lives
+        self.score = score
+        # self.backgroundImg = util.loadImage(backgroundImg)
         self.setIcon()
         self.setCaption()
         self.setScreen(self.width, self.height)
-        self.showBackgroundImg()
+        # self.showBackgroundImg()
+
+    def getLives(self):
+        return self.lives
+
+    def setLives(self, lives):
+        self.lives = lives
+
+    def getScore(self):
+        return self.score
 
     def setIcon(self):
         icon = pygame.image.load(self.icon)
@@ -36,8 +48,14 @@ class Screen:
         self.setDimensions(width, height)
         self.screen = pygame.display.set_mode((self.width, self.height))
 
-    def showBackgroundImg(self):
-        self.screen.blit(self.backgroundImg, (0,0))
+    def setState(self, state):
+        self.state = state
+
+    def getState(self):
+        return self.state
+
+    # def showBackgroundImg(self):
+    #     self.screen.blit(self.backgroundImg, (0,0))
 
     def getScreen(self):
         return self.screen
